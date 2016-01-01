@@ -32,7 +32,7 @@ This behavior can be enabled for any `IDublinCore`. For the purposes of
 testing, we will use the CMFCore Document type and a custom
 IBehaviorAssignable adapter to mark the behavior as enabled.
 
-    >>> from Products.CMFDefault.Document import Document
+    >>> from plone.app.contenttypes.content import Document
 
     >>> from plone.behavior.interfaces import IBehaviorAssignable
     >>> from collective.gtags.behaviors import ITags

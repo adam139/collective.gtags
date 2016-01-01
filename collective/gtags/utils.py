@@ -1,3 +1,4 @@
+
 CATEGORY_DELIMITER = u"-"
 
 def get_categories(tags):

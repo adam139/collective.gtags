@@ -1,22 +1,33 @@
 import doctest
 import unittest
-from zope.testing import doctestunit
-from zope.app.testing import setup
+from plone.testing import layered
+from collective.gtags.base import FUNCTIONAL_TESTING
+
 
 def setUp(test):
     pass
         
 def tearDown(test):
     setup.placefulTearDown()
-
+    
 def test_suite():
-    return unittest.TestSuite((
-        doctestunit.DocFileSuite(
-            'tagging.txt',
-            setUp=setUp, tearDown=tearDown,
-            optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS),
-        doctestunit.DocFileSuite(
-            'behaviors.txt',
-            setUp=setUp, tearDown=tearDown,
-            optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS),
-        ))
+    suite = unittest.TestSuite()
+    suite.addTests([
+        layered(
+            doctest.DocFileSuite(
+                'tagging.txt',
+                optionflags=doctest.ELLIPSIS
+            ),
+            layer=FUNCTIONAL_TESTING
+        ),
+        layered(
+            doctest.DocFileSuite(
+                'behaviors.txt',
+                optionflags=doctest.ELLIPSIS
+            ),
+            layer=FUNCTIONAL_TESTING
+        ),
+    ])
+    return suite
+if __name__ == '__main__':
+    unittest.main(defaultTest='test_suite')
