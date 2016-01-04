@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-01-01 11:38+0000\n"
+"POT-Creation-Date: 2016-01-04 12:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,7 @@ msgid "Allow uncommon tags"
 msgstr ""
 
 #: ./interfaces.py:42
+#: ./profiles/default/registry.xml
 msgid "Allow uncommon tags globally"
 msgstr ""
 
@@ -35,10 +36,12 @@ msgid "Categorization"
 msgstr ""
 
 #: ./interfaces.py:68
+#: ./profiles/default/registry.xml
 msgid "Category"
 msgstr ""
 
 #: ./interfaces.py:43
+#: ./profiles/default/registry.xml
 msgid "If enabled, it will be possible to add tags other than those in the list below to content objects that support this. If disabled, all tags must be in the pre-defined list."
 msgstr ""
 
@@ -47,10 +50,12 @@ msgid "If enabled, it will be possible to add tags other than those in the pre-d
 msgstr ""
 
 #: ./interfaces.py:73
+#: ./profiles/default/registry.xml
 msgid "If you want to ensure that users pick at least one tag in a given category, list the category name here."
 msgstr ""
 
 #: ./interfaces.py:63
+#: ./profiles/default/registry.xml
 msgid "If you want to ensure that users pick at most one tag in a given category, list the category name here."
 msgstr ""
 
@@ -59,6 +64,7 @@ msgid "Invalid tags"
 msgstr ""
 
 #: ./interfaces.py:53
+#: ./profiles/default/registry.xml
 msgid "List pre-defined tags here. Tags can either be simple strings or categorised using the form Category-TagName."
 msgstr ""
 
@@ -67,6 +73,7 @@ msgid "Please enter details of available tags"
 msgstr ""
 
 #: ./interfaces.py:52
+#: ./profiles/default/registry.xml
 msgid "Pre-defined tags"
 msgstr ""
 
@@ -76,6 +83,7 @@ msgstr ""
 
 #: ./field.py:79
 #: ./interfaces.py:58
+#: ./profiles/default/registry.xml
 msgid "Tag"
 msgstr ""
 
@@ -96,6 +104,7 @@ msgid "There must be a least one tag available for each category selected."
 msgstr ""
 
 #: ./interfaces.py:62
+#: ./profiles/default/registry.xml
 msgid "Unique categories"
 msgstr ""
 

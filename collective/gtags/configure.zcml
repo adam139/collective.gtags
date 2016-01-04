@@ -6,9 +6,10 @@
 
     <include package="plone.app.registry" />
     <include package=".browser" />
+
     
     <include file="behaviors.zcml" />
-    <i18n:registerTranslations directory="locales" />
+
     <!-- Register installation profile -->
     <gs:registerProfile
         name="default"
@@ -18,5 +19,5 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-
+<i18n:registerTranslations directory="locales" />
 </configure>
