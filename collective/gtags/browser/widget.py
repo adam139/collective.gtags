@@ -28,7 +28,7 @@ class TagsWidget(z3c.form.browser.widget.HTMLInputWidget, z3c.form.widget.Sequen
     items = ()
 
     maxResults = 40
-    minChars = 0
+    minChars = 1
     numCols = 3
 
     def isChecked(self, term):
@@ -59,6 +59,8 @@ class TagsWidget(z3c.form.browser.widget.HTMLInputWidget, z3c.form.widget.Sequen
         
         # Find current tags
         
+#         import pdb
+#         pdb.set_trace()
         for count, tag in enumerate(sorted(self.value)):
             id = '%s-%i' % (self.id, count)
             items.append({
@@ -112,6 +114,8 @@ class TagsWidget(z3c.form.browser.widget.HTMLInputWidget, z3c.form.widget.Sequen
         return uncommon_tags
     
     def extract(self, default=z3c.form.interfaces.NOVALUE):
+#         import pdb
+#         pdb.set_trace()
         if (self.name not in self.request and
             self.name+'-empty-marker' in self.request):
             return []
@@ -137,6 +141,8 @@ class TagsWidget(z3c.form.browser.widget.HTMLInputWidget, z3c.form.widget.Sequen
     def js(self):
         
         tags_array = self.to_js_array(self.settings.tags)
+#         import pdb
+#         pdb.set_trace()
         uncommon_tags_array = self.to_js_array(self.uncommon_tags())
         unique_categories_array = self.to_js_array(self.settings.unique_categories)
         required_categories_array = self.to_js_array(self.settings.required_categories)

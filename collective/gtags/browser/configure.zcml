@@ -4,31 +4,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.gtags">
     
-    <include package="plone.formwidget.autocomplete" />
-    
-    <!-- Tags widget -->
-    
-    <adapter
-        for="collective.gtags.interfaces.ITags
-             z3c.form.interfaces.IFormLayer"
-        factory=".widget.TagsFieldWidget"
-        />
-        
-    <adapter factory=".widget.TagsErrorView" />
-    
-    <z3c:widgetTemplate
-        mode="input"
-        widget="collective.gtags.interfaces.ITagsWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="tags_input.pt"
-        />
-    
-    <z3c:widgetTemplate
-        mode="display"
-        widget="collective.gtags.interfaces.ITagsWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="tags_display.pt"
-        />
+
     
     <!-- Control panel form -->
     <browser:page 

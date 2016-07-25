@@ -9,6 +9,10 @@
 
     
     <include file="behaviors.zcml" />
+  	<utility
+    component=".source.KeywordsVocabularyFactory"
+    name="collective.gtags.Keywords"
+    />    
 
     <!-- Register installation profile -->
     <gs:registerProfile
