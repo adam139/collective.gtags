@@ -1,7 +1,14 @@
 Changelog
 =========
+
+master
+-------------------
+
+* 2019-08-06 merge dev1.2 to master
+
 dev1.2
 -------------------
+
 * 2018-09-26 create and switch to dev1.2 branch
 
 1.0b2 - 2009-07-12
