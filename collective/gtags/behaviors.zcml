@@ -17,5 +17,11 @@
         provides=".behaviors.ITags"
         factory=".behaviors.Tags"
         />
-
+        
+    <plone:behavior
+        title="Project GTags"
+        description="Add the Dublin Core Subject (keywords) field that Google Code like tags for Project content ypes."
+        provides=".behaviors.IProjectTags"
+        factory=".behaviors.ProjectTags"
+        />
 </configure>

@@ -57,13 +57,23 @@ class ITagSettings(Interface):
             default=set(),
             value_type=schema.TextLine(title=_(u"Tag")),
         )
+
+    project_tags = schema.Set(
+            title=_(u"Pre-defined tags for project management"),
+            description=_(u"List pre-defined tags here. Tags can either be "
+                            "simple strings or categorised using the form "
+                            "Category-TagName."),
+            required=True,
+            default=set(),
+            value_type=schema.TextLine(title=_(u"Tag")),
+        )
         
     unique_categories = schema.Set(
             title=_(u"Unique categories"),
             description=_(u"If you want to ensure that users pick at most "
                             "one tag in a given category, list the category "
                             "name here."),
-            required=True,
+            required=False,
             default=set(),
             value_type=schema.TextLine(title=_(u"Category")),
         )
@@ -73,7 +83,7 @@ class ITagSettings(Interface):
             description=_(u"If you want to ensure that users pick "
                             "at least one tag in a given category, "
                             "list the category name here."),
-            required=True,
+            required=False,
             default=set(),
             value_type=schema.TextLine(title=_(u"Category")),
         )
@@ -86,7 +96,7 @@ class ITagSettings(Interface):
         
         from collective.gtags.utils import get_categories
         
-        tags = obj.tags
+        tags = obj.tags.union(obj.project_tags)
         if tags is None:
             tags = set()
         

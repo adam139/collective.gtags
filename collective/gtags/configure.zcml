@@ -12,8 +12,11 @@
   	<utility
     component=".source.KeywordsVocabularyFactory"
     name="collective.gtags.Keywords"
-    />    
-
+    />
+  	<utility
+    component=".source.ProjectKeywordsVocabularyFactory"
+    name="collective.gtags.ProjectKeywords"
+    />
     <!-- Register installation profile -->
     <gs:registerProfile
         name="default"

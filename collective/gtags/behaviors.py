@@ -43,6 +43,17 @@ class ITags(form.Schema):
 
 alsoProvides(ITags, form.IFormFieldProvider)
 
+class IProjectTags(ITags):
+    """Add tags to content for project 
+    """
+    
+    directives.widget(
+        'tags',
+        AjaxSelectFieldWidget,
+        vocabulary='collective.gtags.ProjectKeywords'
+    )
+alsoProvides(IProjectTags, form.IFormFieldProvider)
+
 def filter_category(value):
     if "-" not in value:return value
     return value.split('-')[1]
@@ -61,10 +72,19 @@ class Tags(object):
     @getproperty
     def tags(self):
         return set(self.context.Subject())
+    
     @setproperty
     def tags(self, value):
         if value is None:
             value = ()
         # filter category
-#         value = map(filter_category,value)            
+#         value = map(filter_category,value)
         self.context.setSubject(tuple(value))
+        
+
+class ProjectTags(Tags):
+    """Store tags in the Dublin Core metadata Subject field. This makes
+    tags easy to search for.
+    """
+    implements(IProjectTags)
+    adapts(IDublinCore)

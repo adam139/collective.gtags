@@ -20,6 +20,7 @@ class TagsSource(object):
 
     def __init__(self, context, allow_uncommon=None):
         settings = getUtility(IRegistry).forInterface(ITagSettings)
+        tags = settings.tags.union(settings.project_tags)
         
         if allow_uncommon is None:
             self.allow_uncommon = settings.allow_uncommon
@@ -27,7 +28,7 @@ class TagsSource(object):
             self.allow_uncommon = allow_uncommon
 
         self.vocab = SimpleVocabulary.fromItems([
-                (self._quote(value), unicode(value)) for value in settings.tags
+                (self._quote(value), unicode(value)) for value in tags
             ])
     
     def __contains__(self, value):
@@ -77,7 +78,6 @@ class TagsSourceBinder(object):
         return TagsSource(context, self.allow_uncommon)
     
         
-    
 @implementer(IVocabularyFactory)
 class KeywordsVocabulary(object):
     """Vocabulary factory listing all catalog keywords from the "Subject" index
@@ -139,9 +139,9 @@ class KeywordsVocabulary(object):
     
 
     def __call__(self, context, query=None):
-
         settings = getUtility(IRegistry).forInterface(ITagSettings)
         tags = settings.tags
+
         if tags is None:
             return SimpleVocabulary([])
         
@@ -162,4 +162,32 @@ class KeywordsVocabulary(object):
         ]
         return SimpleVocabulary(items)
 
-KeywordsVocabularyFactory = KeywordsVocabulary()    
+
+@implementer(IVocabularyFactory)
+class ProjectKeywordsVocabulary(object):
+    def __call__(self, context, query=None):
+        settings = getUtility(IRegistry).forInterface(ITagSettings)
+        tags = settings.project_tags
+
+        if tags is None:
+            return SimpleVocabulary([])
+        
+        def safe_encode(term):
+            if isinstance(term, unicode):
+                # no need to use portal encoding for transitional encoding from
+                # unicode to ascii. utf-8 should be fine.
+                term = term.encode('utf-8')
+            return term
+
+        # Vocabulary term tokens *must* be 7 bit values, titles *must* be
+        # unicode
+        newtags = map(safe_encode,tags)
+        items = [
+            SimpleTerm(i, b2a_qp(i), safe_unicode(i))
+            for i in newtags
+            if query is None or safe_encode(query) in i
+        ]
+        return SimpleVocabulary(items)
+    
+KeywordsVocabularyFactory = KeywordsVocabulary()
+ProjectKeywordsVocabularyFactory = ProjectKeywordsVocabulary()

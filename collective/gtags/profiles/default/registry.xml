@@ -19,9 +19,10 @@
     </field>
     <value>
       <element>项目</element>
+      <element>资源</element>
     </value>
   </record>
-  <record name="collective.gtags.interfaces.ITagSettings.tags" interface="collective.gtags.interfaces.ITagSettings" field="tags">
+  <record name="collective.gtags.interfaces.ITagSettings.project_tags" interface="collective.gtags.interfaces.ITagSettings" field="tags">
     <field type="plone.registry.field.Set">
       <default/>
       <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">List pre-defined tags here. Tags can either be simple strings or categorised using the form Category-TagName.</description>
@@ -34,6 +35,21 @@
       <element>项目-规范</element>
       <element>项目-标准</element>
       <element>项目-设计</element>
+    </value>
+  </record>
+<record name="collective.gtags.interfaces.ITagSettings.tags" interface="collective.gtags.interfaces.ITagSettings" field="tags">
+    <field type="plone.registry.field.Set">
+      <default/>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">List pre-defined tags here. Tags can either be simple strings or categorised using the form Category-TagName.</description>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Pre-defined tags</title>
+      <value_type type="plone.registry.field.TextLine">
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Tag</title>
+      </value_type>
+    </field>
+    <value>
+      <element>资源-规范</element>
+      <element>资源-标准</element>
+      <element>资源-设计</element>
     </value>
   </record>
   <record name="collective.gtags.interfaces.ITagSettings.unique_categories" interface="collective.gtags.interfaces.ITagSettings" field="unique_categories">

@@ -100,9 +100,17 @@ class Tags(Set):
         
         settings = getUtility(IRegistry).forInterface(ITagSettings)
         
-        allowed_tags = set(settings.tags)
-        unique_categories = set(settings.unique_categories)
-        required_categories = set(settings.required_categories)
+        allowed_tags = settings.tags.union(settings.project_tags)
+        u = settings.unique_categories
+        if u:
+            unique_categories = set(u)
+        else:
+            unique_categories = set()
+        u = settings.required_categories
+        if u:
+            required_categories = set(u)
+        else:
+            required_categories = set()
         
         categories_used = {}
         
@@ -117,7 +125,6 @@ class Tags(Set):
         
         for tag in tags:
             category, value = split(tag)
-            
             if not allow_uncommon and tag not in allowed_tags:
                 disallowed.add(tag)
                 
@@ -141,3 +148,4 @@ class Tags(Set):
         
         if disallowed or nonunique or required:
             raise TagsError(disallowed, nonunique, required)
+        
