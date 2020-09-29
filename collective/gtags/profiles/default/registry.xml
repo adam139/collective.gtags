@@ -8,20 +8,6 @@
     </field>
     <value>True</value>
   </record>
-  <record name="collective.gtags.interfaces.ITagSettings.required_categories" interface="collective.gtags.interfaces.ITagSettings" field="required_categories">
-    <field type="plone.registry.field.Set">
-      <default/>
-      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">If you want to ensure that users pick at least one tag in a given category, list the category name here.</description>
-      <title>Required categories</title>
-      <value_type type="plone.registry.field.TextLine">
-        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Category</title>
-      </value_type>
-    </field>
-    <value>
-      <element>项目</element>
-      <element>资源</element>
-    </value>
-  </record>
   <record name="collective.gtags.interfaces.ITagSettings.project_tags" interface="collective.gtags.interfaces.ITagSettings" field="tags">
     <field type="plone.registry.field.Set">
       <default/>
