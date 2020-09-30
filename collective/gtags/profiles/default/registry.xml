@@ -8,11 +8,11 @@
     </field>
     <value>True</value>
   </record>
-  <record name="collective.gtags.interfaces.ITagSettings.project_tags" interface="collective.gtags.interfaces.ITagSettings" field="tags">
+  <record name="collective.gtags.interfaces.ITagSettings.project_tags" interface="collective.gtags.interfaces.ITagSettings" field="project_tags">
     <field type="plone.registry.field.Set">
       <default/>
       <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">List pre-defined tags here. Tags can either be simple strings or categorised using the form Category-TagName.</description>
-      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Pre-defined tags</title>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Pre-defined Project tags</title>
       <value_type type="plone.registry.field.TextLine">
         <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Tag</title>
       </value_type>
@@ -51,4 +51,17 @@
       <element>项目</element>
     </value>
   </record>
-</registry>
+<record name="collective.gtags.interfaces.ITagSettings.required_categories" interface="collective.gtags.interfaces.ITagSettings" field="required_categories">
+    <field type="plone.registry.field.Set">
+      <default/>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">If you want to ensure that users pick at least one tag in a given category, list the category name here.</description>
+      <title>Required categories</title>
+      <value_type type="plone.registry.field.TextLine">
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Category</title>
+      </value_type>
+    </field>
+    <value>
+      <element>项目</element>
+    </value>
+  </record>
+  </registry>
