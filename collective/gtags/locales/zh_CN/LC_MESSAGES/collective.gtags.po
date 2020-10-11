@@ -78,6 +78,9 @@ msgstr "请输入有效标签的详细情况"
 msgid "Pre-defined tags"
 msgstr "预定义的标签"
 
+msgid "Pre-defined tags for project management"
+msgstr "项目管理预定义标签"
+
 #: ./interfaces.py:19
 msgid "Set to False to disable validation against globally specified unique and required categories."
 msgstr ""

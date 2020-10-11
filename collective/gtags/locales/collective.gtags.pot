@@ -72,6 +72,11 @@ msgstr ""
 msgid "Please enter details of available tags"
 msgstr ""
 
+#: ./interfaces.py:61
+#: ./profiles/default/registry.xml
+msgid "Pre-defined tags for project management"
+msgstr ""
+
 #: ./interfaces.py:52
 #: ./profiles/default/registry.xml
 msgid "Pre-defined tags"
